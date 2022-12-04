@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun runBackGround(executorService: ExecutorService) = executorService.submit {
-        while (true) {
+        while (!this.isFinishing) {
             Thread.sleep(1000)
             logMessage("is executing")
             textSecondsLeft.post {
